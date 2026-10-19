@@ -1,0 +1,309 @@
+
+
+:root {
+    --bg: #ffffff;
+    --text: #2b2b2b;
+    --muted: #5a5a5a;
+    --board: #2b2b2b;
+    --chalk: #f4f4f4;
+    --blue: #1f73b9;
+    --orange: #e8a02f;
+    --red: #d6264a;
+    --line: #e2e2e2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    line-height: 1.55;
+}
+
+
+
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+header {
+    background: var(--bg);
+}
+
+header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
+.logo img {
+    height: 68px;
+    width: auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+
+
+header::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--red),
+        var(--orange)
+    );
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 3px;
+}
+
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 64px;
+}
+
+
+
+h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.05;
+    margin: 0 0 16px;
+    font-weight: 800;
+}
+
+
+
+.hero p {
+    color: var(--muted);
+    max-width: 42ch;
+    margin: 0 0 24px;
+    font-size: 1.1rem;
+}
+
+
+
+.btn {
+    display: inline-block;
+    background: var(--red);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #ad1938;
+    transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--text);
+    outline-offset: 3px;
+}
+
+
+
+.board {
+    background: var(--board);
+    color: var(--chalk);
+    border-radius: 6px;
+    padding: 28px;
+    border: 8px solid var(--blue);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.board h2 {
+    margin: 0 0 14px;
+    font-size: 1.3rem;
+    color: var(--orange);
+}
+
+.board ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.board li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(242, 240, 230, 0.3);
+}
+
+.board li:last-child {
+    border: 0;
+}
+
+.board li span:first-child {
+    flex: 1;
+}
+
+.board li span:last-child {
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--orange);
+}
+
+
+section {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+}
+
+h2.t {
+    font-size: 1.6rem;
+    margin: 0 0 20px;
+}
+
+
+
+.cols {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+    );
+    gap: 32px;
+}
+
+
+
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+dd {
+    margin: 0 0 16px;
+    color: var(--muted);
+}
+
+
+
+section a {
+    color: var(--blue);
+}
+
+
+
+footer {
+    padding: 32px 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--line);
+    background: #f7f7f7;
+}
+
+
+
+@media (max-width: 760px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+
+    header .wrap {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 12px 20px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .board {
+        padding: 20px;
+        border-width: 5px;
+    }
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --bg: #17181b;
+        --text: #ececec;
+        --muted: #a8a8a8;
+        --board: #26282d;
+        --line: #33363c;
+    }
+
+    footer {
+        background: #202125;
+    }
+}
+
+
